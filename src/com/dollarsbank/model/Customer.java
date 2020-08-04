@@ -64,5 +64,15 @@ public class Customer {
         this.customerID = customerID;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerName='" + customerName + '\'' +
+                ", customerPhoneNumber='" + customerPhoneNumber + '\'' +
+                ", customerAddress='" + customerAddress + '\'' +
+                ", customerID='" + customerID + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 
 }

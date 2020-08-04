@@ -19,6 +19,9 @@ import com.dollarsbank.model.Account;
 
 
 public class DollarsBankController {
+    Customer customer = new Customer();
+    Account account = new Account();
+
 
     public static boolean exitFlag = true;
     public void login(){
@@ -32,7 +35,17 @@ public class DollarsBankController {
         option = ConsolePrinterUtility.retryUntilSucceeds("Enter password:", TYPES.LINE, -1);
         String password = option.getValue().toString();
 
-        if(ID.equals(cust.getCustomerID()) && password.equals(cust.getPassword()));{
+        // Debugging
+        /*
+        System.out.println(ID);
+        System.out.println(password);
+
+        System.out.println(customer.getCustomerID());
+        System.out.println(customer.getPassword());
+        */
+
+
+        if(ID.equals(customer.getCustomerID()) && password.equals(customer.getPassword())){
                     menu();
         }
 
@@ -53,14 +66,17 @@ public class DollarsBankController {
                 Result option = ConsolePrinterUtility.retryUntilSucceeds("Your input: ", TYPES.INT, 6);
                 switch (option.getValueAsInt()){
                     case 1:
+                        depositMoney();
                         break;
                     case 2:
+                        withdrawMoney();
                         break;
                     case 3:
                         break;
                     case 4:
                         break;
                     case 5:
+                        DisplayCustomerInfo();
                         break;
                     case 6:
                         exitFlag =false;
@@ -77,11 +93,40 @@ public class DollarsBankController {
     }
 
 
+    public  void depositMoney(){
+        Result option;
+        option = ConsolePrinterUtility.retryUntilSucceeds("Deposit Money:", TYPES.LINE, -1);
+        String deposit = option.getValue().toString();
+        account.setCheckingAccount(deposit);
+
+    }
+
+
+    /**** needs to be implemented *****/
+    public void withdrawMoney(){
+        Result option;
+        option = ConsolePrinterUtility.retryUntilSucceeds("Withdraw Money:", TYPES.LINE, -1);
+        //String withdraw = option.getValue().toString();
+
+        int num1 = option.getValueAsInt().intValue();
+       // int num2 = account.getAccountID().hashCode();
+
+        System.out.println(num1);
+      //  System.out.println(num2);
+
+
+    }
+
+    public void DisplayCustomerInfo(){
+        System.out.println("Customer Information");
+        System.out.println(customer);
+        System.out.println("Checking Account: " + account.getCheckingAccount());
+
+    }
+
     public void createCustomerWithInputs(){
         Result option;
 
-       Customer customer = new Customer();
-       Account account = new Account();
 
         //Enter a Customer ID
         option = ConsolePrinterUtility.retryUntilSucceeds("Enter Customer ID:", TYPES.LINE, -1);
