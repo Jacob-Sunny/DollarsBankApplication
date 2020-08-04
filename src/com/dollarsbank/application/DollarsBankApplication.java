@@ -3,13 +3,15 @@ package com.dollarsbank.application;
 import com.dollarsbank.utility.ConsolePrinterUtility;
 import com.dollarsbank.utility.ConsolePrinterUtility.Result;
 import com.dollarsbank.utility.ConsolePrinterUtility.TYPES;
+import com.dollarsbank.controller.DollarsBankController;
 
 public class DollarsBankApplication {
+
 
     public static boolean exitFlag = true;
 
     public static void main(String[] args) {
-
+        DollarsBankController dbc = new DollarsBankController();
     System.out.println("Welcome to Online Banking!!!");
         do {
             System.out.println("Please choose an option to proceed:");
@@ -23,11 +25,13 @@ public class DollarsBankApplication {
             switch (option.getValueAsInt()) {
 
                 case 1:
-                    System.out.println("1");
+                    System.out.println("Create a new Account");
+                    dbc.createCustomerWithInputs();
                     break;
 
                 case 2:
-                    System.out.println("2");
+                    System.out.println("Please enter your ID and Password to proceed");
+                    dbc.login();
                     break;
 
                 case 3:

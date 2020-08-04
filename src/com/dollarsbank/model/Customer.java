@@ -6,20 +6,31 @@ public class Customer {
     private String customerPhoneNumber;
     private String customerAddress;
     private String customerID;
+    private String password;
 
     //default constructor
     public Customer() {
     }
 
     //parameterized constructor
-    public Customer(String customerName, String customerPhoneNumber, String customerAddress, String customerID) {
+    public Customer(String customerName, String customerPhoneNumber, String customerAddress, String customerID, String password) {
         this.customerName = customerName;
         this.customerPhoneNumber = customerPhoneNumber;
         this.customerAddress = customerAddress;
         this.customerID = customerID;
+        this.password = password;
     }
 
+
     /************** GETTERS and SETTERS *********/
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     public String getCustomerName() {
         return customerName;
